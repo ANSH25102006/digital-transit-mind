@@ -1,29 +1,34 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Nav } from "@/components/site/Nav";
+import { Hero } from "@/components/site/Hero";
+import { Simulation } from "@/components/site/Simulation";
+import { Intelligence } from "@/components/site/Intelligence";
+import { Bento } from "@/components/site/Bento";
+import { Vision } from "@/components/site/Vision";
+import { Footer } from "@/components/site/Footer";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Your App" },
-      { name: "description", content: "Replace this with a one-sentence description of your app." },
-      { property: "og:title", content: "Your App" },
-      { property: "og:description", content: "Replace this with a one-sentence description of your app." },
+      { title: "Metro Digital Twin — Smart City Transit Intelligence" },
+      { name: "description", content: "A cinematic real-time digital twin of urban metro networks. Simulation, AI prediction and intelligence for the autonomous city." },
+      { property: "og:title", content: "Metro Digital Twin" },
+      { property: "og:description", content: "Cinematic real-time digital twin of urban metro networks." },
     ],
   }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <main className="relative bg-background text-foreground min-h-screen">
+      <Nav />
+      <Hero />
+      <Simulation />
+      <Intelligence />
+      <Bento />
+      <Vision />
+      <Footer />
+    </main>
   );
 }
