@@ -1,14 +1,16 @@
 import { motion } from "framer-motion";
 import { ArrowUpRight, Sparkles } from "lucide-react";
 import { MetroMap } from "./MetroMap";
+import { LiveFeed } from "./LiveFeed";
 
 export function Hero() {
   return (
-    <section className="relative min-h-screen pt-32 pb-20 overflow-hidden">
+    <section className="immersive relative min-h-screen pt-32 pb-24 overflow-hidden">
       {/* Background layers */}
-      <div className="absolute inset-0 bg-aurora" />
-      <div className="absolute inset-0 bg-grid opacity-60" />
-      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
+      <div className="absolute inset-0 bg-grid opacity-70" />
+      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-secondary/60 to-transparent" />
+      {/* Soft transit beams */}
+      <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[120%] h-72 bg-[radial-gradient(ellipse_at_center,oklch(0.65_0.19_255/0.35),transparent_60%)] blur-2xl" />
 
       {/* Floating particles */}
       {Array.from({ length: 24 }).map((_, i) => (
@@ -30,17 +32,17 @@ export function Hero() {
         >
           <div className="glass rounded-full px-4 py-1.5 flex items-center gap-2 text-xs tracking-wide">
             <Sparkles className="w-3.5 h-3.5 text-secondary" />
-            <span className="text-muted-foreground">Smart City Operating System</span>
-            <span className="text-secondary">v3.2 — Live</span>
+            <span className="text-on-dark/70">Urban Transit Intelligence</span>
+            <span className="text-secondary">v3.2 · Live</span>
           </div>
 
-          <h1 className="mt-8 text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-semibold tracking-tighter leading-[0.95] max-w-5xl">
+          <h1 className="mt-8 text-5xl sm:text-6xl md:text-7xl lg:text-[5.75rem] font-semibold tracking-tighter leading-[0.95] max-w-5xl">
             <span className="text-gradient">The Digital Twin</span>
             <br />
-            <span className="text-foreground/90">of Urban Transit.</span>
+            <span className="text-on-dark/90">of Urban Transit.</span>
           </h1>
 
-          <p className="mt-7 max-w-2xl text-base md:text-lg text-muted-foreground leading-relaxed">
+          <p className="mt-7 max-w-2xl text-base md:text-lg text-on-dark/65 leading-relaxed">
             Real-time simulation, AI prediction, and cinematic visualization for the world's
             most complex metro networks — rendered as a living, breathing twin.
           </p>
@@ -53,35 +55,35 @@ export function Hero() {
               </span>
               <div className="absolute inset-0 -translate-x-full group-hover:translate-x-0 transition-transform duration-700 bg-gradient-to-r from-transparent via-white/30 to-transparent" />
             </button>
-            <button className="px-6 py-3 rounded-xl glass text-foreground/90 font-medium hover:bg-white/10 transition-colors">
+            <button className="px-6 py-3 rounded-xl glass text-on-dark/90 font-medium hover:bg-white/10 transition-colors">
               Watch Simulation
             </button>
           </div>
         </motion.div>
 
-        {/* Floating metro map showcase */}
+        {/* Floating metro map + live feed */}
         <motion.div
           initial={{ opacity: 0, y: 60 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.1, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
-          className="relative mt-20"
+          className="relative mt-20 grid lg:grid-cols-[1fr_320px] gap-5 items-stretch"
         >
-          <div className="absolute -inset-10 bg-gradient-to-r from-primary/20 via-accent/20 to-secondary/20 blur-3xl opacity-50" />
+          <div className="absolute -inset-10 bg-gradient-to-r from-primary/25 via-accent/20 to-secondary/25 blur-3xl opacity-60" />
           <div className="relative glass-strong rounded-3xl p-3 sm:p-5">
-            <div className="relative rounded-2xl overflow-hidden bg-[oklch(0.1_0.025_260)] border border-white/5">
+            <div className="relative rounded-2xl overflow-hidden bg-[oklch(0.13_0.03_260)] border border-white/5">
               {/* Toolbar */}
               <div className="flex items-center justify-between px-5 py-3 border-b border-white/5">
                 <div className="flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full bg-neon-teal animate-pulse-glow" />
-                  <span className="text-xs text-muted-foreground tracking-wide">LIVE · 14,827 active passengers</span>
+                  <span className="text-xs text-on-dark/60 tracking-wide">LIVE · 14,827 active passengers</span>
                 </div>
-                <div className="hidden sm:flex items-center gap-4 text-[11px] text-muted-foreground tracking-wider uppercase">
+                <div className="hidden sm:flex items-center gap-4 text-[11px] text-on-dark/60 tracking-wider uppercase">
                   <span className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-sm bg-primary" />Line A</span>
                   <span className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-sm bg-secondary" />Line B</span>
-                  <span className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-sm bg-accent" />Line C</span>
+                  <span className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-sm bg-neon-teal" />Line C</span>
                 </div>
               </div>
-              <MetroMap className="w-full h-[280px] sm:h-[440px]" />
+              <MetroMap className="w-full h-[320px] sm:h-[460px]" />
 
               {/* Floating dashboard cards */}
               <FloatingCard className="absolute top-16 left-4 sm:left-8 animate-float" style={{ animationDelay: "0s" }}
@@ -91,6 +93,9 @@ export function Hero() {
               <FloatingCard className="absolute top-12 right-4 sm:right-8 animate-float" style={{ animationDelay: "1s" }}
                 label="Predicted Surge" value="Stn 14" trend="in 6m" tone="accent" />
             </div>
+          </div>
+          <div className="relative">
+            <LiveFeed className="h-full" />
           </div>
         </motion.div>
       </div>
