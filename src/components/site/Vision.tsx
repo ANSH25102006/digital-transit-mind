@@ -2,8 +2,8 @@ import { Reveal } from "./Reveal";
 
 export function Vision() {
   return (
-    <section id="vision" className="relative py-32 overflow-hidden">
-      <div className="absolute inset-0 bg-aurora opacity-50" />
+    <section id="vision" className="relative py-32 overflow-hidden bg-urban">
+      <div className="absolute inset-0 bg-aurora opacity-70" />
       <div className="relative max-w-7xl mx-auto px-6 text-center">
         <Reveal>
           <div className="text-xs tracking-[0.3em] uppercase text-primary mb-6">05 — Smart City Vision</div>

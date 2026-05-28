@@ -4,8 +4,9 @@ import { Brain, Route, Zap, LineChart } from "lucide-react";
 
 export function Intelligence() {
   return (
-    <section id="intelligence" className="relative py-32 overflow-hidden">
-      <div className="absolute inset-0 bg-grid opacity-40" />
+    <section id="intelligence" className="immersive relative py-32 overflow-hidden">
+      <div className="absolute inset-0 bg-grid opacity-50" />
+      <div className="absolute -top-40 left-1/4 w-[60rem] h-[40rem] bg-[radial-gradient(ellipse_at_center,oklch(0.55_0.19_255/0.35),transparent_60%)] blur-3xl" />
       <div className="relative max-w-7xl mx-auto px-6">
         <Reveal className="text-center max-w-3xl mx-auto">
           <div className="text-xs tracking-[0.3em] uppercase text-accent mb-4">03 — Intelligence</div>

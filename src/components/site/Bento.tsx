@@ -4,8 +4,9 @@ import { Radio, Map, TrendingUp, Cpu, ShieldCheck } from "lucide-react";
 
 export function Bento() {
   return (
-    <section id="network" className="relative py-32">
-      <div className="max-w-7xl mx-auto px-6">
+    <section id="network" className="relative py-32 bg-urban">
+      <div className="absolute inset-0 bg-grid opacity-40 pointer-events-none" />
+      <div className="relative max-w-7xl mx-auto px-6">
         <Reveal className="max-w-3xl mb-16">
           <div className="text-xs tracking-[0.3em] uppercase text-neon-teal mb-4">04 — Dashboard</div>
           <h2 className="text-4xl md:text-6xl font-semibold tracking-tight">
@@ -44,7 +45,7 @@ export function Bento() {
             <Label icon={TrendingUp}>On-Time Performance</Label>
             <div className="mt-3 text-4xl font-semibold tracking-tight">99.2<span className="text-2xl text-muted-foreground">%</span></div>
             <div className="text-xs text-neon-teal mt-1">▲ 1.4% vs last week</div>
-            <div className="mt-4 h-2 rounded-full bg-white/5 overflow-hidden">
+            <div className="mt-4 h-2 rounded-full bg-primary/10 overflow-hidden">
               <motion.div initial={{ width: 0 }} whileInView={{ width: "99%" }} viewport={{ once: true }}
                 transition={{ duration: 1.4, ease: "easeOut" }}
                 className="h-full bg-gradient-to-r from-primary via-secondary to-neon-teal" />
@@ -77,7 +78,7 @@ export function Bento() {
               ].map((row, i) => (
                 <div key={row.s} className="flex items-center gap-3 text-sm">
                   <span className="w-44 text-muted-foreground truncate">{row.s}</span>
-                  <div className="flex-1 h-1.5 rounded-full bg-white/5 overflow-hidden">
+                  <div className="flex-1 h-1.5 rounded-full bg-primary/10 overflow-hidden">
                     <motion.div initial={{ width: 0 }} whileInView={{ width: `${row.v}%` }} viewport={{ once: true }}
                       transition={{ duration: 1, delay: i * 0.1 }}
                       className="h-full bg-gradient-to-r from-primary to-accent" />
