@@ -4,8 +4,9 @@ import { Users, Gauge, AlertTriangle } from "lucide-react";
 
 export function Simulation() {
   return (
-    <section id="simulation" className="relative py-32 overflow-hidden">
-      <div className="absolute inset-0 bg-aurora opacity-40" />
+    <section id="simulation" className="relative py-32 overflow-hidden bg-urban">
+      <div className="absolute inset-0 bg-aurora opacity-60" />
+      <div className="absolute inset-0 bg-grid opacity-40" />
       <div className="relative max-w-7xl mx-auto px-6">
         <Reveal className="max-w-3xl">
           <div className="text-xs tracking-[0.3em] uppercase text-secondary mb-4">02 — Simulation</div>
